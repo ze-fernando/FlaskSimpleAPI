@@ -1,7 +1,7 @@
 from flask import Flask, jsonify, request
 from flask_pydantic_spec import FlaskPydanticSpec
 
-from api.connection import *
+from connection import *
 
 app = Flask(__name__)
 spec = FlaskPydanticSpec('flask', title='CRUD API')

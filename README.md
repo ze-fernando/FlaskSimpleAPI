@@ -1,6 +1,6 @@
 # Crud API simple with flask and postgreSQL
-## Method Get
-### You can lists all data
+### Method Get
+ You can lists all data
 ## Method Get/id
 ### You can list one data by id
 ## Method Post

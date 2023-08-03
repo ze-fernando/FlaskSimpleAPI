@@ -101,7 +101,3 @@ def editAnime(id:int):
             }
         )
     return jsonify(message="Successfully updated anime", dados=animeJson)
-
-
-if __name__ == '__main__':
-    app.run(debug=True)

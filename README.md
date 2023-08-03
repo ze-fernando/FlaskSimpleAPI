@@ -1,13 +1,13 @@
 # Crud API simple with flask and postgreSQL
-### Method Get
-🟦You can lists all data
-## Method Get/id
-🟦You can list one data by id
-## Method Post
+
+## Methods
+### Get Get/id
+🟦You can list all data, but if you pass an id, you only get one data per id
+### Post
 🟩 You can add a new data in db
-## Method Delete 
+### Delete 
 🟥 You can delete data in db by id
-## Method PUT
+### PUT
 🟧 You can edit data in db by id 
  
 ## For more, you can see documentation
@@ -16,3 +16,6 @@
 ## Link for you make requestions
 <https://flask-simple-api.vercel.app/animes/>
 
+
+
+By: José fernando

@@ -1,16 +1,15 @@
 # Crud API
 
 ## Endpoints
-**Get**
+`**Get**`
 
-**Post**
+`**Post**`
 
-**Get/{id}**
+`**Get/{id}**`
 
-**Put/{id}**
+`**Put/{id}**`
 
-**Delete/{id}**
-
+`**Delete/{id}**`
 
 **You can see here**
 <https://flask-simple-api.vercel.app/apidoc/swagger#/>

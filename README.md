@@ -1,5 +1,10 @@
 # Crud API
 
+## About
+Simple api crud, where you can add your anime and if you already watched it or not
+make with Flask e ProstgreSQL
+
+
 ## Endpoints
 *`Get`*
 

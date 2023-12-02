@@ -1,42 +1,17 @@
 from flask import Flask, jsonify, request
 from flask_pydantic_spec import FlaskPydanticSpec
-import psycopg2
-from src.config.ConfigDb import ConfigDB as db
-
-connect = psycopg2.connect(host=db.POSTGRES_HOST, database=db.POSTGRES_DATABASE, 
-                           user=db.POSTGRES_USER, password=db.POSTGRES_PASSWORD)
-
-cursor = connect.cursor()
+from src.services.services import *
 
 app = Flask(__name__)
 spec = FlaskPydanticSpec('flask', title='CRUD API')
 spec.register(app)
 
-sql = """CREATE TABLE IF NOT EXISTS animes (
-        ID SERIAL PRIMARY KEY,
-        NAME VARCHAR(100), 
-        ASSISTIDO BOOLEAN NOT NULL
-        );"""
 
-
-cursor.execute(sql)
-
-
-@app.get("/animes/")
+@app.get("/animes")
 def getAll():
-    """Get all data in database"""
-    cursor.execute('SELECT * FROM animes')
-    allAnimes = cursor.fetchall()
-    animeJson = list()
-    for anime in allAnimes:
-        animeJson.append(
-            {
-                "id": anime[0],
-                "name": anime[1],
-                "assistido": anime[2]
-            }
-        )
-    return jsonify(animeJson)
+    res = allAnimes()
+    
+    return jsonify(res)
 
 
 
@@ -106,3 +81,7 @@ def editAnime(id:int):
             }
         )
     return jsonify(message="Successfully updated anime", dados=animeJson)
+
+
+if __name__ == "__main__":
+    app.run(debug = True)

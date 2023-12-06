@@ -9,78 +9,38 @@ spec.register(app)
 
 @app.get("/animes")
 def getAll():
-    res = allAnimes()
+    res = get()
     
     return jsonify(res)
 
 
 
 @app.get("/animes/<int:id>")
-def getById(id:id): 
-    """Get data for id"""
-    cursor.execute(f'SELECT * FROM animes WHERE ID = {id}')
-    animeById = cursor.fetchall()
-    animeJson = list()
-    for anime in animeById:
-        animeJson.append(
-            {
-                "id": anime[0],
-                "name": anime[1],
-                "assistido": anime[2]
-            }
-        )
-    return jsonify(animeJson)
+def getOne(id:id): 
+   res = getById()
+   
+   return jsonify(res)
 
 
-@app.post("/animes/")
+@app.post("/animes")
 def createAnime():
-    """Create new data in database"""
-    newAnime = request.json
-    cursor.execute(f"INSERT INTO animes (name, assistido) VALUES ('{newAnime['name']}','{newAnime['assistido']}')")
-    connect.commit()
+    res = create()
 
-    return jsonify(message="Successfully registered anime", dados=newAnime)
+    return jsonify(message="Successfully registered anime", dados=res)
 
 
 @app.delete("/animes/<int:id>")
 def deleteById(id:int):
-    """Delete data for id"""
-    cursor.execute(f"DELETE FROM animes WHERE ID = {id}")            
-    connect.commit()
-
-    cursor.execute('SELECT * FROM animes')
-    animes = cursor.fetchall()
-    animeJson = list()
-    for anime in animes:
-        animeJson.append(
-            {
-                "id": anime[0],
-                "name": anime[1],
-                "assistido": anime[2]
-            }
-        )
-    return jsonify(message="Successfully deleted anime", dados=animeJson)
+    res = delete(id)
+    
+    return jsonify(message="Successfully deleted anime", dados=res)
 
 
 @app.put("/animes/<int:id>")
 def editAnime(id:int):
-    """Edit data in database"""
-    updatedAnime = request.json
-    cursor.execute(f"UPDATE animes SET NAME='{updatedAnime['name']}', ASSISTIDO='{updatedAnime['assistido']}' WHERE ID = {id}")
-    connect.commit()
-
-    cursor.execute('SELECT * FROM animes')
-    animes = cursor.fetchall()
-    animeJson = list()
-    for anime in animes:
-        animeJson.append(
-            {
-                "id": anime[0],
-                "name": anime[1],
-                "assistido": anime[2]
-            }
-        )
-    return jsonify(message="Successfully updated anime", dados=animeJson)
+    body = request.json
+    res = put(id, body)
+    return jsonify(message="Successfully updated anime", dados=res)
 
 
 if __name__ == "__main__":

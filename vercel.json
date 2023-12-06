@@ -1,13 +1,13 @@
 {
-    "includeFiles": [
-        "src/config/**",
-        "src/services/**",
-        "src/routes/**"
-      ],
     "builds":[
         {
             "src":"api/app.py",
-            "use":"@vercel/python"
+            "use":"@vercel/python",           
+            "includeFiles": [
+                "src/config/**",
+                "src/services/**",
+                "src/routes/**"
+            ]
         }
     ],
     "routes":[

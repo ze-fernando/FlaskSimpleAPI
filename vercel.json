@@ -1,19 +1,5 @@
 {
-    "builds":[
-        {
-            "src":"api/app.py",
-            "use":"@vercel/python",           
-            "includeFiles": [
-                "src/config/**",
-                "src/services/**",
-                "src/routes/**"
-            ]
-        }
-    ],
-    "routes":[
-        {
-            "src":"/(.*)",
-            "dest":"api/app.py"
-        }
+    "rewrites": [
+      { "source": "/(.*)", "destination": "/api/app" }
     ]
-}
+  }

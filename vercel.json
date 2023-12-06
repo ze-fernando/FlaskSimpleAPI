@@ -1,4 +1,13 @@
 {
+    "functions": {
+    "api/app.py": {
+      "includeFiles": [
+        "src/config/**",
+        "src/services/**",
+        "src/routes/**"
+      ]
+    }
+  },
     "builds":[
         {
             "src":"api/app.py",

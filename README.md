@@ -82,3 +82,12 @@ return
   "message": "Successfully deleted anime"
 }
 ```
+
+
+### Production
+
+Make your requests here \
+[https://flask-simple-ijqgm07qp-ze-fernando.vercel.app/animes](https://flask-simple-ijqgm07qp-ze-fernando.vercel.app/animes)
+
+Docs swagger \
+[https://flask-simple-ijqgm07qp-ze-fernando.vercel.app/apidoc/swagger#/](https://flask-simple-ijqgm07qp-ze-fernando.vercel.app/apidoc/swagger#/)

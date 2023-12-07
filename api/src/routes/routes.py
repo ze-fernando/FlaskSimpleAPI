@@ -14,7 +14,7 @@ def getAll():
 
 @route.get("/animes/<int:id>")
 def getOne(id:id): 
-   res = getById()
+   res = getById(id)
    
    return jsonify(res)
 

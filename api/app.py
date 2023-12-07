@@ -1,6 +1,6 @@
 from flask import Flask
 from flask_pydantic_spec import FlaskPydanticSpec
-from . import routes
+from src.routes import routes
 
 app = Flask(__name__)
 app.register_blueprint(routes.route)

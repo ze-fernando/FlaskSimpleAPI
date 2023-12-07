@@ -1,6 +1,6 @@
 import psycopg2
 from flask import jsonify, request
-from ..config.ConfigDb import ConfigDB as db
+from config.ConfigDb import ConfigDB as db
 
 connect = psycopg2.connect(host=db.POSTGRES_HOST, database=db.POSTGRES_DATABASE, 
                            user=db.POSTGRES_USER, password=db.POSTGRES_PASSWORD)
